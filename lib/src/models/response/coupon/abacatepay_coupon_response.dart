@@ -36,7 +36,7 @@ final class AbacatePayCouponResponse {
 
   factory AbacatePayCouponResponse.fromData(Map<String, dynamic> data) {
     return AbacatePayCouponResponse(
-      code: data[AbacatePayConstants.code],
+      code: data[AbacatePayConstants.id],
       notes: data[AbacatePayConstants.notes],
       maxRedeems: data[AbacatePayConstants.maxRedeems],
       discountKind:
@@ -48,13 +48,4 @@ final class AbacatePayCouponResponse {
       metadata: data[AbacatePayConstants.metadata],
     );
   }
-
-  Map<String, dynamic> toMap() => {
-    AbacatePayConstants.code: code,
-    AbacatePayConstants.notes: notes,
-    AbacatePayConstants.maxRedeems: maxRedeems,
-    AbacatePayConstants.discountKind: discountKind,
-    AbacatePayConstants.discount: discount,
-    AbacatePayConstants.metadata: metadata,
-  };
 }

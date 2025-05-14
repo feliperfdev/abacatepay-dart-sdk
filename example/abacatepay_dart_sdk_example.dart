@@ -3,7 +3,13 @@ import 'package:abacatepay/abacatepay_dart_sdk.dart';
 void main() async {
   final abacatePay = AbacatePay(apiKey: 'your-abacatepay-api-key');
 
-  await abacatePay.customers.listCustomers();
-  await abacatePay.billing.listBillings();
-  await abacatePay.pixQrCode.simulatePayment('pixQrCodeID');
+  final customers = await abacatePay.customers.listCustomers();
+  final billings = await abacatePay.billing.listBillings();
+  final coupons = await abacatePay.coupon.listCoupons();
+
+  print(customers.map((customer) => customer.id));
+  print(billings.map((billing) => billing.id));
+  print(coupons.map((coupon) => coupon.code));
+
+  return;
 }

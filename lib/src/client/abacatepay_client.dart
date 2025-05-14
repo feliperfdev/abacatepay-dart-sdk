@@ -10,7 +10,7 @@ class AbacatePayClient {
 
   final _http = Client();
 
-  String get _baseURL => 'api.AbacatePay.com/v$apiVersion';
+  String get _baseURL => 'api.abacatepay.com';
 
   Map<String, String> get _headers => {
     'Authorization': "Bearer $apiKey",
@@ -23,7 +23,7 @@ class AbacatePayClient {
 
     Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, path, queryParams);
+    final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
     print(url.toString());
 
@@ -33,6 +33,8 @@ class AbacatePayClient {
       headers: _headers,
     );
 
+    print('Status: ${response.statusCode}');
+
     return jsonDecode(response.body);
   }
 
@@ -40,7 +42,7 @@ class AbacatePayClient {
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
-    final url = Uri.https(_baseURL, path);
+    final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
     print(url.toString());
 
@@ -49,6 +51,8 @@ class AbacatePayClient {
       body: jsonEncode(body),
       headers: _headers,
     );
+
+    print('Status: ${response.statusCode}');
 
     return jsonDecode(response.body);
   }
@@ -57,11 +61,13 @@ class AbacatePayClient {
     String path, {
     Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, path, queryParams);
+    final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
     print(url.toString());
 
     final response = await _http.get(url, headers: _headers);
+
+    print('Status: ${response.statusCode}');
 
     return jsonDecode(response.body);
   }
@@ -70,7 +76,7 @@ class AbacatePayClient {
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
-    final url = Uri.https(_baseURL, path);
+    final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
     print(url.toString());
 
@@ -79,6 +85,8 @@ class AbacatePayClient {
       body: jsonEncode(body),
       headers: _headers,
     );
+
+    print('Status: ${response.statusCode}');
 
     return jsonDecode(response.body);
   }
