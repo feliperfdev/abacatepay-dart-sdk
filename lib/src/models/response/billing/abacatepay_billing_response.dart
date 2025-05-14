@@ -44,10 +44,10 @@ final class AbacatePayBillingResponse {
       devMode: data[AbacatePayConstants.devMode],
       methods: getMultipleEnumValuesByApiKey<AbacatePaymentMethod>(
         AbacatePaymentMethod.values,
-        data[AbacatePayConstants.methods],
+        List<String>.from(data[AbacatePayConstants.methods]),
       ),
       products:
-          (data[AbacatePayConstants.products] as List<Map<String, dynamic>>)
+          (List<Map<String, dynamic>>.from(data[AbacatePayConstants.products]))
               .map<AbacatePayProductDataResponse>(
                 AbacatePayProductDataResponse.fromData,
               )

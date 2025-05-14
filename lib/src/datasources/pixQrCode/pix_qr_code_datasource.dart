@@ -1,6 +1,6 @@
 import 'package:abacatepay/src/client/abacatepay_client.dart';
 import 'package:abacatepay/src/models/response/pixQrCode/abacatepay_pixqrcode_response.dart';
-import 'package:abacatepay/src/models/response/pixQrCode/abacatepay_pixqrcode_status_response';
+import 'package:abacatepay/src/models/response/pixQrCode/abcatepay_pixqrcode_status_response.dart';
 
 final class AbacatePayPixQrCode {
   late final AbacatePayClient _client;

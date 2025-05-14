@@ -2,7 +2,7 @@ import 'package:abacatepay/abacatepay_dart_sdk.dart';
 import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 
 final class AbacatePayBillingData {
-  final String frequency;
+  final BillingFrequency frequency;
   final List<AbacatePaymentMethod> methods;
   final String? returnUrl;
   final String? completitionId;
@@ -21,7 +21,7 @@ final class AbacatePayBillingData {
   });
 
   Map<String, dynamic> toMap() => {
-    AbacatePayConstants.frequency: frequency,
+    AbacatePayConstants.frequency: frequency.apiKey,
     AbacatePayConstants.methods:
         methods.map((method) => method.apiKey).toList(),
     AbacatePayConstants.products:

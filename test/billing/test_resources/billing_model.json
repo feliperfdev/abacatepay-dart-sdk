@@ -1,0 +1,29 @@
+{
+  "data": {
+    "id": "bill_123456",
+    "url": "https://pay.abacatepay.com/bill-5678",
+    "amount": 4000,
+    "status": "PENDING",
+    "devMode": true,
+    "methods": ["PIX"],
+    "products": [
+      {
+        "id": "prod_123456",
+        "externalId": "prod-1234",
+        "quantity": 2
+      }
+    ],
+    "frequency": "ONE_TIME",
+    "nextBilling": null,
+    "customer": {
+      "id": "bill_123456",
+      "metadata": {
+        "name": "Daniel Lima",
+        "cellphone": "(11) 4002-8922",
+        "email": "daniel_lima@abacatepay.com",
+        "taxId": "123.456.789-01"
+      }
+    }
+  },
+  "error": "<any>"
+}
