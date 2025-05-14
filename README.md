@@ -1,5 +1,5 @@
 <div align='center'>
-    <img src='assets/logo.svg' height=150/>
+    <img src='https://raw.githubusercontent.com/feliperfdev/abacatepay-dart-sdk/refs/heads/main/assets/logo.svg' height=150/>
 </div>
 
 <div align='center'>
