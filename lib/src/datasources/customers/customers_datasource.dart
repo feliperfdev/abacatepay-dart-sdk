@@ -1,6 +1,5 @@
 import 'package:abacatepay/abacatepay_dart_sdk.dart';
 import 'package:abacatepay/src/client/abacatepay_client.dart';
-import 'package:abacatepay/src/models/response/customer/abacatepay_customer_response.dart';
 
 final class AbacatePayCustomerDatas {
   late final AbacatePayClient _client;
@@ -14,7 +13,7 @@ final class AbacatePayCustomerDatas {
   Future<List<AbacatePayCustomerResponse>> listCustomers() async {
     final response = await _client.get('${_basePath}list');
 
-    final data = response['data'] as List<Map<String, dynamic>>;
+    final data = List<Map<String, dynamic>>.from(response['data']);
 
     return data.map(AbacatePayCustomerResponse.fromData).toList();
   }

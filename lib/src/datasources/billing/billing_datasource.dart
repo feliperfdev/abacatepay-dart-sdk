@@ -14,7 +14,7 @@ final class AbacatePayBilling {
   Future<List<AbacatePayBillingResponse>> listBillings() async {
     final response = await _client.get('${_basePath}list');
 
-    final data = response['data'] as List<Map<String, dynamic>>;
+    final data = List<Map<String, dynamic>>.from(response['data']);
 
     return data.map(AbacatePayBillingResponse.fromData).toList();
   }
