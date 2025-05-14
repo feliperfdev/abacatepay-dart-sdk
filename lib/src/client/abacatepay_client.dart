@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart';
 
 final class AbacatePayClient {
@@ -14,44 +16,52 @@ final class AbacatePayClient {
     'Content-Type': "application/json",
   };
 
-  Future<dynamic> post(
+  Future<Map<String, dynamic>> post(
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
     final url = Uri.https(_baseURL, path);
+
+    print(url.toString());
 
     final response = await _http.post(url, body: body, headers: _headers);
 
-    return response.body;
+    return jsonDecode(response.body);
   }
 
-  Future<dynamic> put(
+  Future<Map<String, dynamic>> put(
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
     final url = Uri.https(_baseURL, path);
 
+    print(url.toString());
+
     final response = await _http.put(url, body: body, headers: _headers);
 
-    return response.body;
+    return jsonDecode(response.body);
   }
 
-  Future<dynamic> get(String path) async {
+  Future<Map<String, dynamic>> get(String path) async {
     final url = Uri.https(_baseURL, path);
+
+    print(url.toString());
 
     final response = await _http.get(url, headers: _headers);
 
-    return response.body;
+    return jsonDecode(response.body);
   }
 
-  Future<dynamic> delete(
+  Future<Map<String, dynamic>> delete(
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
     final url = Uri.https(_baseURL, path);
 
+    print(url.toString());
+
     final response = await _http.put(url, body: body, headers: _headers);
 
-    return response.body;
+    return jsonDecode(response.body);
   }
 }

@@ -1,27 +1,34 @@
+import 'package:abacatepay_dart_sdk/abacatepay_dart_sdk.dart';
 import 'package:abacatepay_dart_sdk/src/client/abacatepay_client.dart';
-import 'package:abacatepay_dart_sdk/src/models/abacatepay_customer.dart';
+import 'package:abacatepay_dart_sdk/src/models/response/customer/abacatepay_customer_response.dart';
 
-final class AbacatePayCustomers {
+final class AbacatePayCustomerDatas {
   late final AbacatePayClient _client;
 
-  AbacatePayCustomers(AbacatePayClient client) {
+  AbacatePayCustomerDatas(AbacatePayClient client) {
     _client = client;
   }
 
   static const _basePath = '/customer/';
 
-  Future listCustomers() async {
+  Future<List<AbacatePayCustomerDataResponse>> listCustomers() async {
     final response = await _client.get('${_basePath}list');
 
-    return response;
+    final data = response['data'] as List<Map<String, dynamic>>;
+
+    return data.map(AbacatePayCustomerDataResponse.fromData).toList();
   }
 
-  Future createCustomer(AbacatePayCustomer customer) async {
+  Future<AbacatePayCustomerDataResponse> createCustomer(
+    AbacatePayCustomerData customerData,
+  ) async {
     final response = await _client.post(
       '${_basePath}create',
-      body: customer.toMap(),
+      body: customerData.toMap(),
     );
 
-    return response;
+    final data = response['data'] as Map<String, dynamic>;
+
+    return AbacatePayCustomerDataResponse.fromData(data);
   }
 }

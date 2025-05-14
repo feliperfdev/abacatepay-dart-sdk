@@ -1,10 +1,10 @@
-final class AbacatePayCustomer {
+final class AbacatePayCustomerData {
   final String name;
   final String cellphone;
   final String email;
   final String taxId;
 
-  AbacatePayCustomer({
+  AbacatePayCustomerData({
     required this.name,
     required this.cellphone,
     required this.email,

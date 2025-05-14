@@ -12,17 +12,23 @@ final class AbacatePayPixQrCode {
   Future simulatePayment() async {
     final response = await _client.post('${_basePath}simulate-payment');
 
+    final data = response['data'] as Map<String, dynamic>;
+
     return response;
   }
 
   Future createPayment() async {
     final response = await _client.post('${_basePath}create');
 
+    final data = response['data'] as Map<String, dynamic>;
+
     return response;
   }
 
   Future checkPaymentStatus() async {
     final response = await _client.get('${_basePath}check');
+
+    final data = response['data'] as Map<String, dynamic>;
 
     return response;
   }

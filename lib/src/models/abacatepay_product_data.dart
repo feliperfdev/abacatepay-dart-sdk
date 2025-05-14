@@ -1,11 +1,11 @@
-final class AbacatePayProduct {
+final class AbacatePayProductData {
   final String externalId;
   final String name;
   final String description;
   final int quantity;
   final double price;
 
-  AbacatePayProduct({
+  AbacatePayProductData({
     required this.externalId,
     required this.name,
     required this.description,

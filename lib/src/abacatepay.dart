@@ -5,7 +5,7 @@ import 'package:abacatepay_dart_sdk/src/datasources/pixQrCode/pix_qr_code_dataso
 
 final class AbacatePay {
   late final AbacatePayBilling billing;
-  late final AbacatePayCustomers customers;
+  late final AbacatePayCustomerDatas customers;
   late final AbacatePayPixQrCode pixQrCode;
 
   late final String _apiKey;
@@ -16,7 +16,7 @@ final class AbacatePay {
     final client = AbacatePayClient(apiKey: _apiKey);
 
     billing = AbacatePayBilling(client);
-    customers = AbacatePayCustomers(client);
+    customers = AbacatePayCustomerDatas(client);
     pixQrCode = AbacatePayPixQrCode(client);
   }
 }
