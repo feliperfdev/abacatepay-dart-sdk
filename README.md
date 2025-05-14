@@ -83,6 +83,10 @@ final createdCoupon = await abacateCoupons.createCoupon(AbacatePayCouponData); /
 final coupons = await abacateCoupons.lisCounpons(); // List<AbacatePayCouponResponse>
 ```
 
+### Sample video
+
+<video src="assets/sample.mp4" width="200" height="390" controls></video>
+
 ## Additional information
 
 - [Contribute oppening issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
