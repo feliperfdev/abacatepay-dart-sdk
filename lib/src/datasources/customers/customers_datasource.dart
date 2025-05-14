@@ -1,10 +1,10 @@
 import 'package:abacatepay/abacatepay_dart_sdk.dart';
 import 'package:abacatepay/src/client/abacatepay_client.dart';
 
-final class AbacatePayCustomerDatas {
+final class AbacatePayCustomer {
   late final AbacatePayClient _client;
 
-  AbacatePayCustomerDatas(AbacatePayClient client) {
+  AbacatePayCustomer(AbacatePayClient client) {
     _client = client;
   }
 

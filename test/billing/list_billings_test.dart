@@ -11,12 +11,16 @@ void main() {
   late AbacatePayBilling datasource;
   late MockClient client;
 
+  bool emptyResponse = false;
+
   setUpAll(() {
     client = MockClient((request) async {
       if (request.toString().contains('/billing/list')) {
         return Response(
           File(
-            'test/billing/test_resources/billings_list_model.json',
+            !emptyResponse
+                ? 'test/billing/test_resources/billings_list_model.json'
+                : 'test/test_resources/empty_list_data.json',
           ).readAsStringSync(),
           200,
         );
@@ -33,5 +37,13 @@ void main() {
 
     expect(billings.length, 2);
     expect(billings.last.id, 'bill_654321');
+  });
+
+  test('Deve listar vazio com sucesso', () async {
+    emptyResponse = true;
+
+    final billings = await datasource.listBillings();
+
+    expect(billings, isEmpty);
   });
 }
