@@ -1,3 +1,7 @@
+## 1.0.2+3
+
+- API Methods fixes
+
 ## 1.0.2+2
 
 - Improved documentation

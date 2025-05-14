@@ -75,7 +75,7 @@ final class AbacatePayMockClient implements AbacatePayClient {
 
     print(url.toString());
 
-    final response = await client.put(
+    final response = await client.delete(
       url,
       body: jsonEncode(body),
       headers: _headers,

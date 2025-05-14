@@ -80,7 +80,7 @@ class AbacatePayClient {
 
     print(url.toString());
 
-    final response = await _http.put(
+    final response = await _http.delete(
       url,
       body: jsonEncode(body),
       headers: _headers,
