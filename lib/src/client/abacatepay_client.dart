@@ -4,12 +4,13 @@ import 'package:http/http.dart';
 
 class AbacatePayClient {
   final String apiKey;
+  final int apiVersion;
 
-  AbacatePayClient({required this.apiKey});
+  AbacatePayClient({required this.apiKey, required this.apiVersion});
 
   final _http = Client();
 
-  static const _baseURL = 'api.AbacatePay.com/v1';
+  String get _baseURL => 'api.AbacatePay.com/v$apiVersion';
 
   Map<String, String> get _headers => {
     'Authorization': "Bearer $apiKey",
@@ -19,8 +20,10 @@ class AbacatePayClient {
   Future<Map<String, dynamic>> post(
     String path, {
     Map<String, dynamic> body = const {},
+
+    Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, path);
+    final url = Uri.https(_baseURL, path, queryParams);
 
     print(url.toString());
 
@@ -50,8 +53,11 @@ class AbacatePayClient {
     return jsonDecode(response.body);
   }
 
-  Future<Map<String, dynamic>> get(String path) async {
-    final url = Uri.https(_baseURL, path);
+  Future<Map<String, dynamic>> get(
+    String path, {
+    Map<String, String>? queryParams,
+  }) async {
+    final url = Uri.https(_baseURL, path, queryParams);
 
     print(url.toString());
 

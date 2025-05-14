@@ -4,6 +4,7 @@ export 'src/abacatepay.dart';
 export 'src/models/abacatepay_product_data.dart';
 export 'src/models/dto/customer/abacatepay_customer_data.dart';
 export 'src/models/dto/billing/abacatepay_billing_data.dart';
+export 'src/models/dto/pixQrCode/abacatepay_pixqrcode_data.dart';
 export 'src/models/enums/abacate_payment_method_enum.dart';
 export 'src/models/enums/billing_frequency_enum.dart';
 export 'src/models/enums/payment_status_enum.dart';

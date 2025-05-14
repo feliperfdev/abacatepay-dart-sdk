@@ -18,8 +18,10 @@ final class AbacatePayMockClient implements AbacatePayClient {
   Future<Map<String, dynamic>> post(
     String path, {
     Map<String, dynamic> body = const {},
+
+    Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, path);
+    final url = Uri.https(_baseURL, path, queryParams);
 
     print(url.toString());
 
@@ -51,8 +53,11 @@ final class AbacatePayMockClient implements AbacatePayClient {
   }
 
   @override
-  Future<Map<String, dynamic>> get(String path) async {
-    final url = Uri.https(_baseURL, path);
+  Future<Map<String, dynamic>> get(
+    String path, {
+    Map<String, String>? queryParams,
+  }) async {
+    final url = Uri.https(_baseURL, path, queryParams);
 
     print(url.toString());
 
@@ -81,4 +86,7 @@ final class AbacatePayMockClient implements AbacatePayClient {
 
   @override
   String get apiKey => 'fake-api-key';
+
+  @override
+  int get apiVersion => 1;
 }

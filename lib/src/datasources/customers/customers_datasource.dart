@@ -10,6 +10,7 @@ final class AbacatePayCustomer {
 
   static const _basePath = '/customer/';
 
+  /// Permite que você recupere uma lista de todos os seus clientes.
   Future<List<AbacatePayCustomerResponse>> listCustomers() async {
     final response = await _client.get('${_basePath}list');
 
@@ -18,6 +19,7 @@ final class AbacatePayCustomer {
     return data.map(AbacatePayCustomerResponse.fromData).toList();
   }
 
+  /// Permite que você crie um novo cliente para a sua loja.
   Future<AbacatePayCustomerResponse> createCustomer(
     AbacatePayCustomerData customerData,
   ) async {

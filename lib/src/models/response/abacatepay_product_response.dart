@@ -1,8 +1,13 @@
 import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 
 final class AbacatePayProductDataResponse {
+  /// Identificador único do produto.
   final String id;
+
+  /// O id do produto em seu sistema.
   final String externalId;
+
+  /// Quantidade do produto sendo adquirida.
   final int quantity;
 
   AbacatePayProductDataResponse({

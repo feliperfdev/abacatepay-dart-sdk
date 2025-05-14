@@ -1,9 +1,16 @@
 import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 
 final class AbacatePayCustomerData {
+  /// Nome completo do seu cliente
   final String name;
+
+  /// Celular do cliente
   final String cellphone;
+
+  /// E-mail do cliente
   final String email;
+
+  /// CPF ou CNPJ do cliente.
   final String taxId;
 
   AbacatePayCustomerData({

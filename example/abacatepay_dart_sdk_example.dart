@@ -5,5 +5,5 @@ void main() async {
 
   await abacatePay.customers.listCustomers();
   await abacatePay.billing.listBillings();
-  await abacatePay.pixQrCode.simulatePayment();
+  await abacatePay.pixQrCode.simulatePayment('pixQrCodeID');
 }

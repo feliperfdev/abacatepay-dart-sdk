@@ -4,7 +4,7 @@
 
 <div align='center'>
 <br/>
-A Dart/Flutter SDK for AbacatePay payment API. 
+A Dart/Flutter SDK for <a href='https://www.abacatepay.com/'>AbacatePay</a> payment API. 
 </div>
 
 ## Features
@@ -19,6 +19,9 @@ A Dart/Flutter SDK for AbacatePay payment API.
   - ✅ Create QrCode PIX
   - ✅ Simulate payment
   - ✅ Check status
+- Coupons
+  - ⭕ List your coupons
+  - ⭕ Create new coupon
 
 ## Getting started
 
@@ -72,6 +75,10 @@ final simulatedPayment = await abacatePixQrCode.checkPaymentStatus(AbacatePayPix
 
 ## Additional information
 
-- [Open issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
+- [Contribute oppening issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
 - [AbacatePay](https://www.abacatepay.com/)
-- [AbacatePay Docs](https://docs.abacatepay.com/pages/introduction)
+- [AbacatePay — Docs](https://docs.abacatepay.com/pages/introduction)
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.

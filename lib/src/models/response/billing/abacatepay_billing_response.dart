@@ -7,15 +7,40 @@ import 'package:abacatepay/src/models/response/abacatepay_product_response.dart'
 import 'package:abacatepay/src/utils/get_enum_by_apikey.dart';
 
 final class AbacatePayBillingResponse {
+  /// Identificador único da cobrança.
   final String id;
+
+  /// URL onde o usuário pode concluir o pagamento
   final String url;
+
+  /// Valor total a ser pago em centavos.
   final int amount;
+
+  /// Status atual da cobrança.
+  ///
+  /// Available options: PENDING, EXPIRED, CANCELLED, PAID, REFUNDED
   final PaymentStatus status;
+
+  /// Indica se a cobrança foi criada em ambiente de testes.
   final bool devMode;
+
+  /// Métodos de pagamento suportados para esta cobrança.
+  ///
+  /// Available options: PIX
   final List<AbacatePaymentMethod> methods;
+
+  /// Lista de produtos na cobrança.
   final List<AbacatePayProductDataResponse> products;
+
+  /// Frequência da cobrança.
+  ///
+  /// Available options: ONE_TIME, MULTIPLE_PAYMENTS
   final BillingFrequency frequency;
+
+  /// Data e hora da próxima cobrança, ou null para cobranças únicas.
   final String? nextBilling;
+
+  /// Os dados do seu cliente.
   final AbacatePayCustomerResponse customer;
 
   AbacatePayBillingResponse({

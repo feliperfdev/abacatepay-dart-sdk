@@ -15,6 +15,7 @@ abstract interface class AbacatePayConstants {
   static const createdAt = 'createdAt';
   static const updatedAt = 'updatedAt';
   static const expiresAt = 'expiresAt';
+  static const expiresIn = 'expiresIn';
   static const externalId = 'externalId';
   static const quantity = 'quantity';
   static const name = 'name';

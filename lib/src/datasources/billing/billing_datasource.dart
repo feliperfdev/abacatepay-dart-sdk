@@ -11,6 +11,7 @@ final class AbacatePayBilling {
 
   static const _basePath = '/billing/';
 
+  /// Permite que você recupere uma lista de todas as cobranças criadas.
   Future<List<AbacatePayBillingResponse>> listBillings() async {
     final response = await _client.get('${_basePath}list');
 
@@ -19,6 +20,7 @@ final class AbacatePayBilling {
     return data.map(AbacatePayBillingResponse.fromData).toList();
   }
 
+  /// Permite que você crie um link de cobrança pro seu cliente pagar você.
   Future<AbacatePayBillingResponse> createBilling(
     AbacatePayBillingData billingData,
   ) async {

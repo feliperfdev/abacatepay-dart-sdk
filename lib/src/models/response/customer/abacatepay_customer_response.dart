@@ -1,8 +1,17 @@
 final class AbacatePayCustomerResponse {
+  /// Identificador único do cliente
   final String id;
+
+  /// Nome completo do seu cliente
   final String name;
+
+  /// Celular do cliente
   final String cellphone;
+
+  /// E-mail do cliente
   final String email;
+
+  /// CPF ou CNPJ do cliente.
   final String taxId;
 
   AbacatePayCustomerResponse({
