@@ -85,7 +85,7 @@ final coupons = await abacateCoupons.lisCounpons(); // List<AbacatePayCouponResp
 
 ## Additional information
 
-- [Contribute oppening issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
+- [Contribute opening issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
 - [AbacatePay](https://www.abacatepay.com/)
 - [AbacatePay — Docs](https://docs.abacatepay.com/pages/introduction)
 
