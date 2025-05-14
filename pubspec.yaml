@@ -1,15 +1,13 @@
 name: abacatepay_dart_sdk
-description: A starting point for Dart libraries or applications.
+description: A Dart/Flutter SDK for AbacatePay payment API.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/feliperfdev/abacatepay-dart-sdk
 
 environment:
   sdk: ^3.7.2
 
-# Add regular dependencies here.
 dependencies:
   http: ^1.4.0
-  # path: ^1.8.0
 
 dev_dependencies:
   lints: ^5.0.0
