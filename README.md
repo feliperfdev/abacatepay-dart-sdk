@@ -28,7 +28,7 @@ A Dart/Flutter SDK for <a href='https://www.abacatepay.com/'>AbacatePay</a> paym
 Add this package to your dart/flutter project `pubspec.yaml` and import it to your code:
 
 ```dart
-import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay.dart';
 ```
 
 ## Usage
@@ -81,7 +81,7 @@ final coupons = await abacateCoupons.lisCounpons(); // List<AbacatePayCouponResp
 
 ### Sample video
 
-<video src="https://raw.githubusercontent.com/feliperfdev/abacatepay-dart-sdk/refs/heads/main/assets/sample.mp4" width="200" height="390" controls></video>
+[Watch it here!](https://raw.githubusercontent.com/feliperfdev/abacatepay-dart-sdk/refs/heads/main/assets/sample.mp4)
 
 ## Additional information
 
