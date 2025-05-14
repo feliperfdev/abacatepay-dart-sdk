@@ -1,11 +1,11 @@
-final class AbacatePayCustomerDataResponse {
+final class AbacatePayCustomerResponse {
   final String id;
   final String name;
   final String cellphone;
   final String email;
   final String taxId;
 
-  AbacatePayCustomerDataResponse({
+  AbacatePayCustomerResponse({
     required this.id,
     required this.name,
     required this.cellphone,
@@ -13,10 +13,10 @@ final class AbacatePayCustomerDataResponse {
     required this.taxId,
   });
 
-  factory AbacatePayCustomerDataResponse.fromData(Map<String, dynamic> data) {
+  factory AbacatePayCustomerResponse.fromData(Map<String, dynamic> data) {
     final metadata = data['metadata'];
 
-    return AbacatePayCustomerDataResponse(
+    return AbacatePayCustomerResponse(
       id: data['id'],
       name: metadata['name'],
       cellphone: metadata['cellphone'],

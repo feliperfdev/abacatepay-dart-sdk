@@ -1,9 +1,9 @@
-import 'package:abacatepay_dart_sdk/src/models/enums/billing_status_enum.dart';
+import 'package:abacatepay/src/models/enums/payment_status_enum.dart';
 
-class AbacatePayPixQrCodeResponse {
+final class AbacatePayPixQrCodeResponse {
   final String id;
   final int amount;
-  final BillingStatus status;
+  final PaymentStatus status;
   final bool devMode;
   final String brCode;
   final String brCodeBase64;
@@ -29,7 +29,7 @@ class AbacatePayPixQrCodeResponse {
     return AbacatePayPixQrCodeResponse(
       id: data["id"],
       amount: data["amount"],
-      status: BillingStatus.values.singleWhere(
+      status: PaymentStatus.values.singleWhere(
         (method) =>
             (data['status'] as List<String>).any((m) => m == method.apiKey),
       ),

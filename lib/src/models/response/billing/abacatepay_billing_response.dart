@@ -1,20 +1,20 @@
-import 'package:abacatepay_dart_sdk/src/models/enums/abacate_payment_method_enum.dart';
-import 'package:abacatepay_dart_sdk/src/models/enums/billing_frequency_enum.dart';
-import 'package:abacatepay_dart_sdk/src/models/enums/billing_status_enum.dart';
-import 'package:abacatepay_dart_sdk/src/models/response/customer/abacatepay_customer_response.dart';
-import 'package:abacatepay_dart_sdk/src/models/response/abacatepay_product_response.dart';
+import 'package:abacatepay/src/models/enums/abacate_payment_method_enum.dart';
+import 'package:abacatepay/src/models/enums/billing_frequency_enum.dart';
+import 'package:abacatepay/src/models/enums/payment_status_enum.dart';
+import 'package:abacatepay/src/models/response/customer/abacatepay_customer_response.dart';
+import 'package:abacatepay/src/models/response/abacatepay_product_response.dart';
 
 final class AbacatePayBillingResponse {
   final String id;
   final String url;
   final int amount;
-  final BillingStatus status;
+  final PaymentStatus status;
   final bool devMode;
   final List<AbacatePaymentMethod> methods;
   final List<AbacatePayProductDataResponse> products;
   final BillingFrequency frequency;
   final String? nextBilling;
-  final AbacatePayCustomerDataResponse customer;
+  final AbacatePayCustomerResponse customer;
 
   AbacatePayBillingResponse({
     required this.id,
@@ -34,7 +34,7 @@ final class AbacatePayBillingResponse {
       id: data["id"],
       url: data["url"],
       amount: data["amount"],
-      status: BillingStatus.values.singleWhere(
+      status: PaymentStatus.values.singleWhere(
         (method) =>
             (data['status'] as List<String>).any((m) => m == method.apiKey),
       ),
@@ -55,7 +55,7 @@ final class AbacatePayBillingResponse {
               .toList(),
       frequency: data["frequency"],
       nextBilling: data["nextBilling"],
-      customer: AbacatePayCustomerDataResponse.fromData(data["customer"]),
+      customer: AbacatePayCustomerResponse.fromData(data["customer"]),
     );
   }
 

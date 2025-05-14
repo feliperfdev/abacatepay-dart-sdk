@@ -25,21 +25,53 @@ A Dart/Flutter SDK for AbacatePay payment API.
 Add this package to your dart/flutter project `pubspec.yaml`:
 
 ```yaml
-abacatepay_dart_sdk: ^1.0.0
+abacatepay: ^1.0.0
 ```
 
 ## Usage
 
 ```dart
-import 'package:abacatepay_dart_sdk/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay_dart_sdk.dart';
+```
 
-void main() {
-    final abacatePay = AbacatePay(apiKey: 'your-abacatepay-api-key');
-}
+```dart
+final abacatePay = AbacatePay(apiKey: 'your-abacatepay-api-key');
+```
 
+### Customers Methods
+
+```dart
+final abacateCustomers = abacatePay.customers;
+
+final customers = await customers.listCustomers(); // List<AbacatePayCustomerResponse>
+
+final createdCustomer = await abacateCustomers.createCustomer(AbacatePayCustomerData); // AbacatePayCustomerResponse
+```
+
+### Billing Methods
+
+```dart
+final abacateBillings = abacatePay.billing;
+
+final billings = await abacateBillings.listBillings(); // List<AbacatePayBillingResponse>
+
+final createdBilling = await abacateBillings.createBilling(AbacatePayBillingData); // AbacatePayBillingResponse
+```
+
+### PixQrCode Methods
+
+```dart
+final abacatePixQrCode = abacatePay.pixQrCode;
+
+final createdPayment = await abacatePixQrCode.createPayment(AbacatePayPixQrCodeData); // List<AbacatePayPixQrCodeResponse>
+
+final paymentStatus = await abacatePixQrCode.simulatePayment(AbacatePayPixQrCodeData); // AbacatePayPixQrCodeStatusResponse
+
+final simulatedPayment = await abacatePixQrCode.checkPaymentStatus(AbacatePayPixQrCodeData); // AbacatePayPixQrCodeStatusResponse
 ```
 
 ## Additional information
 
 - [Open issues or pull-requests](https://github.com/feliperfdev/abacatepay-dart-sdk)
 - [AbacatePay](https://www.abacatepay.com/)
+- [AbacatePay Docs](https://docs.abacatepay.com/pages/introduction)

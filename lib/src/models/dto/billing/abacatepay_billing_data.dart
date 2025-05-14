@@ -1,5 +1,5 @@
-import 'package:abacatepay_dart_sdk/abacatepay_dart_sdk.dart';
-import 'package:abacatepay_dart_sdk/src/models/enums/abacate_payment_method_enum.dart';
+import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/src/models/enums/abacate_payment_method_enum.dart';
 
 final class AbacatePayBillingData {
   final String frequency;

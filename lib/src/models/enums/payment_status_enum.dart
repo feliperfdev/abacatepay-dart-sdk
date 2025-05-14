@@ -1,4 +1,4 @@
-enum BillingStatus {
+enum PaymentStatus {
   pending('PENDING'),
   expired('EXPIRED'),
   cancelled('CANCELLED'),
@@ -7,5 +7,5 @@ enum BillingStatus {
 
   final String apiKey;
 
-  const BillingStatus(this.apiKey);
+  const PaymentStatus(this.apiKey);
 }
