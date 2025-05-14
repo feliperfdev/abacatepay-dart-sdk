@@ -29,33 +29,33 @@ final class AbacatePayBillingResponse {
     required this.customer,
   });
 
-  factory AbacatePayBillingResponse.fromData(Map<String, dynamic> json) {
+  factory AbacatePayBillingResponse.fromData(Map<String, dynamic> data) {
     return AbacatePayBillingResponse(
-      id: json["id"],
-      url: json["url"],
-      amount: json["amount"],
+      id: data["id"],
+      url: data["url"],
+      amount: data["amount"],
       status: BillingStatus.values.singleWhere(
         (method) =>
-            (json['status'] as List<String>).any((m) => m == method.apiKey),
+            (data['status'] as List<String>).any((m) => m == method.apiKey),
       ),
-      devMode: json["devMode"],
+      devMode: data["devMode"],
       methods:
           AbacatePaymentMethod.values
               .where(
-                (method) => (json['methods'] as List<String>).any(
+                (method) => (data['methods'] as List<String>).any(
                   (m) => m == method.apiKey,
                 ),
               )
               .toList(),
       products:
-          (json["products"] as List<Map<String, dynamic>>)
+          (data["products"] as List<Map<String, dynamic>>)
               .map<AbacatePayProductDataResponse>(
                 AbacatePayProductDataResponse.fromData,
               )
               .toList(),
-      frequency: json["frequency"],
-      nextBilling: json["nextBilling"],
-      customer: AbacatePayCustomerDataResponse.fromData(json["customer"]),
+      frequency: data["frequency"],
+      nextBilling: data["nextBilling"],
+      customer: AbacatePayCustomerDataResponse.fromData(data["customer"]),
     );
   }
 
