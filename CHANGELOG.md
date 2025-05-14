@@ -1,3 +1,8 @@
+## 1.0.1
+
+- Package README fixes
+- Test fixes
+
 ## 1.0.0
 
 Fully integrated with all AbacatePay API usecases

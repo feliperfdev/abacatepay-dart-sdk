@@ -1,6 +1,6 @@
 name: abacatepay
 description: AbacatePay Dart/Flutter SDK for you to start receiving payments in seconds
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/feliperfdev/abacatepay-dart-sdk
 
 environment:
