@@ -22,7 +22,8 @@ final class AbacatePayPixQrCodeData {
   }) : assert(
          description.length <= 140,
          'The description should have the maximum of 140 characters.',
-       );
+       ),
+       assert(amount >= 100, 'The amount value should be >= 100 (BRL)');
 
   Map<String, dynamic> toMap() => {
     AbacatePayConstants.amount: amount,

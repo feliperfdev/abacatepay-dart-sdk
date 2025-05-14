@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:abacatepay/src/exceptions/abacatepay_client_exception.dart';
 import 'package:http/http.dart';
 
 class AbacatePayClient {
@@ -23,71 +24,103 @@ class AbacatePayClient {
 
     Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
+    try {
+      final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
-    print(url.toString());
+      print(url.toString());
 
-    final response = await _http.post(
-      url,
-      body: jsonEncode(body),
-      headers: _headers,
-    );
+      final response = await _http.post(
+        url,
+        body: jsonEncode(body),
+        headers: _headers,
+      );
 
-    print('Status: ${response.statusCode}');
+      print('Status: ${response.statusCode}');
 
-    return jsonDecode(response.body);
+      return jsonDecode(response.body);
+    } on ClientException catch (e) {
+      throw AbacatePayClientException(externalExceptionMessage: e.message);
+    } catch (genericException) {
+      throw AbacatePayClientException(
+        externalExceptionMessage: genericException.toString(),
+      );
+    }
   }
 
   Future<Map<String, dynamic>> put(
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
-    final url = Uri.https(_baseURL, '/v$apiVersion$path');
+    try {
+      final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
-    print(url.toString());
+      print(url.toString());
 
-    final response = await _http.put(
-      url,
-      body: jsonEncode(body),
-      headers: _headers,
-    );
+      final response = await _http.put(
+        url,
+        body: jsonEncode(body),
+        headers: _headers,
+      );
 
-    print('Status: ${response.statusCode}');
+      print('Status: ${response.statusCode}');
 
-    return jsonDecode(response.body);
+      return jsonDecode(response.body);
+    } on ClientException catch (e) {
+      throw AbacatePayClientException(externalExceptionMessage: e.message);
+    } catch (genericException) {
+      throw AbacatePayClientException(
+        externalExceptionMessage: genericException.toString(),
+      );
+    }
   }
 
   Future<Map<String, dynamic>> get(
     String path, {
     Map<String, String>? queryParams,
   }) async {
-    final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
+    try {
+      final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
-    print(url.toString());
+      print(url.toString());
 
-    final response = await _http.get(url, headers: _headers);
+      final response = await _http.get(url, headers: _headers);
 
-    print('Status: ${response.statusCode}');
+      print('Status: ${response.statusCode}');
 
-    return jsonDecode(response.body);
+      return jsonDecode(response.body);
+    } on ClientException catch (e) {
+      throw AbacatePayClientException(externalExceptionMessage: e.message);
+    } catch (genericException) {
+      throw AbacatePayClientException(
+        externalExceptionMessage: genericException.toString(),
+      );
+    }
   }
 
   Future<Map<String, dynamic>> delete(
     String path, {
     Map<String, dynamic> body = const {},
   }) async {
-    final url = Uri.https(_baseURL, '/v$apiVersion$path');
+    try {
+      final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
-    print(url.toString());
+      print(url.toString());
 
-    final response = await _http.delete(
-      url,
-      body: jsonEncode(body),
-      headers: _headers,
-    );
+      final response = await _http.delete(
+        url,
+        body: jsonEncode(body),
+        headers: _headers,
+      );
 
-    print('Status: ${response.statusCode}');
+      print('Status: ${response.statusCode}');
 
-    return jsonDecode(response.body);
+      return jsonDecode(response.body);
+    } on ClientException catch (e) {
+      throw AbacatePayClientException(externalExceptionMessage: e.message);
+    } catch (genericException) {
+      throw AbacatePayClientException(
+        externalExceptionMessage: genericException.toString(),
+      );
+    }
   }
 }

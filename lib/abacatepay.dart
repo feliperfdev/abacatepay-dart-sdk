@@ -16,3 +16,5 @@ export 'src/models/response/customer/abacatepay_customer_response.dart';
 export 'src/models/response/pixQrCode/abacatepay_pixqrcode_response.dart';
 export 'src/models/response/pixQrCode/abcatepay_pixqrcode_status_response.dart';
 export 'src/models/response/coupon/abacatepay_coupon_response.dart';
+export 'src/exceptions/abacatepay_client_exception.dart';
+export 'src/exceptions/abacatepay_response_exception.dart';

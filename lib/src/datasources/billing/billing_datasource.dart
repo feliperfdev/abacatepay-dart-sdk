@@ -1,4 +1,6 @@
+import 'package:abacatepay/abacatepay.dart';
 import 'package:abacatepay/src/client/abacatepay_client.dart';
+import 'package:abacatepay/src/exceptions/abacatepay_response_exception.dart';
 import 'package:abacatepay/src/models/dto/billing/abacatepay_billing_data.dart';
 import 'package:abacatepay/src/models/response/billing/abacatepay_billing_response.dart';
 
@@ -13,24 +15,42 @@ final class AbacatePayBilling {
 
   /// Permite que você recupere uma lista de todas as cobranças criadas.
   Future<List<AbacatePayBillingResponse>> listBillings() async {
-    final response = await _client.get('${_basePath}list');
+    try {
+      final response = await _client.get('${_basePath}list');
 
-    final data = List<Map<String, dynamic>>.from(response['data']);
+      final data = List<Map<String, dynamic>>.from(response['data']);
 
-    return data.map(AbacatePayBillingResponse.fromData).toList();
+      return data.map(AbacatePayBillingResponse.fromData).toList();
+    } on AbacatePayClientException catch (_) {
+      rethrow;
+    } catch (genericException, st) {
+      throw AbacatePayResponseException(
+        externalExceptionMessage: genericException.toString(),
+        stackTrace: st.toString(),
+      );
+    }
   }
 
   /// Permite que você crie um link de cobrança pro seu cliente pagar você.
   Future<AbacatePayBillingResponse> createBilling(
     AbacatePayBillingData billingData,
   ) async {
-    final response = await _client.post(
-      '${_basePath}create',
-      body: billingData.toMap(),
-    );
+    try {
+      final response = await _client.post(
+        '${_basePath}create',
+        body: billingData.toMap(),
+      );
 
-    final data = response['data'] as Map<String, dynamic>;
+      final data = response['data'] as Map<String, dynamic>;
 
-    return AbacatePayBillingResponse.fromData(data);
+      return AbacatePayBillingResponse.fromData(data);
+    } on AbacatePayClientException catch (_) {
+      rethrow;
+    } catch (genericException, st) {
+      throw AbacatePayResponseException(
+        externalExceptionMessage: genericException.toString(),
+        stackTrace: st.toString(),
+      );
+    }
   }
 }

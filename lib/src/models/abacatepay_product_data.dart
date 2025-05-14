@@ -22,7 +22,8 @@ final class AbacatePayProductData {
     required this.description,
     required this.quantity,
     required this.price,
-  });
+  }) : assert(quantity >= 1, 'The quantity value should be >= 1'),
+       assert(price >= 100, 'The price value should be >= 100 (BRL)');
 
   Map<String, dynamic> toMap() => {
     AbacatePayConstants.externalId: externalId,
