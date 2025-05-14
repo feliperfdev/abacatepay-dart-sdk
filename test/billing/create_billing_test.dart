@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay.dart';
 import 'package:abacatepay/src/datasources/billing/billing_datasource.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';

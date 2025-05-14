@@ -1,4 +1,4 @@
-import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay.dart';
 
 void main() async {
   final abacatePay = AbacatePay(apiKey: 'your-abacatepay-api-key');

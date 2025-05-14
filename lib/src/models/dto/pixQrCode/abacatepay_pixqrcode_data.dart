@@ -1,4 +1,4 @@
-import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay.dart';
 import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 
 final class AbacatePayPixQrCodeData {

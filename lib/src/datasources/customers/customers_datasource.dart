@@ -1,4 +1,4 @@
-import 'package:abacatepay/abacatepay_dart_sdk.dart';
+import 'package:abacatepay/abacatepay.dart';
 import 'package:abacatepay/src/client/abacatepay_client.dart';
 
 final class AbacatePayCustomer {
