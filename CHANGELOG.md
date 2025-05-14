@@ -1,3 +1,8 @@
+## 1.0.2
+
+- Package README fixes
+- Assets fix
+
 ## 1.0.1
 
 - Package README fixes

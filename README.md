@@ -25,17 +25,13 @@ A Dart/Flutter SDK for <a href='https://www.abacatepay.com/'>AbacatePay</a> paym
 
 ## Getting started
 
-Add this package to your dart/flutter project `pubspec.yaml`:
-
-```yaml
-abacatepay: ^1.0.0
-```
-
-## Usage
+Add this package to your dart/flutter project `pubspec.yaml` and import it to your code:
 
 ```dart
 import 'package:abacatepay/abacatepay_dart_sdk.dart';
 ```
+
+## Usage
 
 ```dart
 final abacatePay = AbacatePay(apiKey: 'your-abacatepay-api-key');
