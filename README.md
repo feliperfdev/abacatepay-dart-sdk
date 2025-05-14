@@ -81,7 +81,7 @@ final coupons = await abacateCoupons.lisCounpons(); // List<AbacatePayCouponResp
 
 ### Sample video
 
-<video src="https://github.com/feliperfdev/abacatepay-dart-sdk/raw/refs/heads/main/assets/sample.mp4" width="200" height="390" controls></video>
+<video src="https://raw.githubusercontent.com/feliperfdev/abacatepay-dart-sdk/refs/heads/main/assets/sample.mp4" width="200" height="390" controls></video>
 
 ## Additional information
 
