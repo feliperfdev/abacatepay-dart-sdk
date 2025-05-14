@@ -1,5 +1,7 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
+
 enum AbacatePaymentMethod {
-  pix('PIX');
+  pix(AbacatePayConstants.pixEnum);
 
   final String apiKey;
 

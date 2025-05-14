@@ -1,5 +1,5 @@
 import 'package:abacatepay/abacatepay_dart_sdk.dart';
-import 'package:abacatepay/src/models/enums/abacate_payment_method_enum.dart';
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 
 final class AbacatePayBillingData {
   final String frequency;
@@ -21,12 +21,14 @@ final class AbacatePayBillingData {
   });
 
   Map<String, dynamic> toMap() => {
-    "frequency": frequency,
-    "methods": methods.map((method) => method.apiKey).toList(),
-    "products": products.map((product) => product.toMap()).toList(),
-    "returnUrl": returnUrl,
-    "completionUrl": completitionId,
-    "customerId": customerId,
-    "customer": customer.toMap(),
+    AbacatePayConstants.frequency: frequency,
+    AbacatePayConstants.methods:
+        methods.map((method) => method.apiKey).toList(),
+    AbacatePayConstants.products:
+        products.map((product) => product.toMap()).toList(),
+    AbacatePayConstants.returnUrl: returnUrl,
+    AbacatePayConstants.completionUrl: completitionId,
+    AbacatePayConstants.customerId: customerId,
+    AbacatePayConstants.customer: customer.toMap(),
   };
 }

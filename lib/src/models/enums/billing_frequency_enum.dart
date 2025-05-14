@@ -1,6 +1,8 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
+
 enum BillingFrequency {
-  oneTime('ONE_TIME'),
-  multiplePayments('MULTIPLE_PAYMENTS');
+  oneTime(AbacatePayConstants.oneTimeEnum),
+  multiplePayments(AbacatePayConstants.multiplePaymentsEnum);
 
   final String apiKey;
 

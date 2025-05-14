@@ -1,9 +1,11 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
+
 enum PaymentStatus {
-  pending('PENDING'),
-  expired('EXPIRED'),
-  cancelled('CANCELLED'),
-  paid('PAID'),
-  refunded('REFUNDED');
+  pending(AbacatePayConstants.pendingEnum),
+  expired(AbacatePayConstants.expiredEnum),
+  cancelled(AbacatePayConstants.cancelledEnum),
+  paid(AbacatePayConstants.paidEnum),
+  refunded(AbacatePayConstants.refundedEnum);
 
   final String apiKey;
 

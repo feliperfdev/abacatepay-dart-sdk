@@ -1,8 +1,10 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
 import 'package:abacatepay/src/models/enums/abacate_payment_method_enum.dart';
 import 'package:abacatepay/src/models/enums/billing_frequency_enum.dart';
 import 'package:abacatepay/src/models/enums/payment_status_enum.dart';
 import 'package:abacatepay/src/models/response/customer/abacatepay_customer_response.dart';
 import 'package:abacatepay/src/models/response/abacatepay_product_response.dart';
+import 'package:abacatepay/src/utils/get_enum_by_apikey.dart';
 
 final class AbacatePayBillingResponse {
   final String id;
@@ -31,44 +33,49 @@ final class AbacatePayBillingResponse {
 
   factory AbacatePayBillingResponse.fromData(Map<String, dynamic> data) {
     return AbacatePayBillingResponse(
-      id: data["id"],
-      url: data["url"],
-      amount: data["amount"],
-      status: PaymentStatus.values.singleWhere(
-        (method) =>
-            (data['status'] as List<String>).any((m) => m == method.apiKey),
+      id: data[AbacatePayConstants.id],
+      url: data[AbacatePayConstants.url],
+      amount: data[AbacatePayConstants.amount],
+      status:
+          getEnumByApiKey<PaymentStatus>(
+            PaymentStatus.values,
+            data[AbacatePayConstants.status],
+          )!,
+      devMode: data[AbacatePayConstants.devMode],
+      methods: getMultipleEnumValuesByApiKey<AbacatePaymentMethod>(
+        AbacatePaymentMethod.values,
+        data[AbacatePayConstants.methods],
       ),
-      devMode: data["devMode"],
-      methods:
-          AbacatePaymentMethod.values
-              .where(
-                (method) => (data['methods'] as List<String>).any(
-                  (m) => m == method.apiKey,
-                ),
-              )
-              .toList(),
       products:
-          (data["products"] as List<Map<String, dynamic>>)
+          (data[AbacatePayConstants.products] as List<Map<String, dynamic>>)
               .map<AbacatePayProductDataResponse>(
                 AbacatePayProductDataResponse.fromData,
               )
               .toList(),
-      frequency: data["frequency"],
-      nextBilling: data["nextBilling"],
-      customer: AbacatePayCustomerResponse.fromData(data["customer"]),
+      frequency:
+          getEnumByApiKey<BillingFrequency>(
+            BillingFrequency.values,
+            data[AbacatePayConstants.frequency],
+          )!,
+      nextBilling: data[AbacatePayConstants.nextBilling],
+      customer: AbacatePayCustomerResponse.fromData(
+        data[AbacatePayConstants.customer],
+      ),
     );
   }
 
   Map<String, dynamic> toMap() => {
-    "id": id,
-    "url": url,
-    "amount": amount,
-    "status": status,
-    "devMode": devMode,
-    "methods": methods.map((method) => method.apiKey).toList(),
-    "products": products.map((product) => product.toMap()).toList(),
-    "frequency": frequency,
-    "nextBilling": nextBilling,
-    "customer": customer.toMap(),
+    AbacatePayConstants.id: id,
+    AbacatePayConstants.url: url,
+    AbacatePayConstants.amount: amount,
+    AbacatePayConstants.status: status.apiKey,
+    AbacatePayConstants.devMode: devMode,
+    AbacatePayConstants.methods:
+        methods.map((method) => method.apiKey).toList(),
+    AbacatePayConstants.products:
+        products.map((product) => product.toMap()).toList(),
+    AbacatePayConstants.frequency: frequency.apiKey,
+    AbacatePayConstants.nextBilling: nextBilling,
+    AbacatePayConstants.customer: customer.toMap(),
   };
 }

@@ -1,3 +1,5 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
+
 final class AbacatePayProductDataResponse {
   final String id;
   final String externalId;
@@ -11,14 +13,14 @@ final class AbacatePayProductDataResponse {
 
   factory AbacatePayProductDataResponse.fromData(Map<String, dynamic> data) =>
       AbacatePayProductDataResponse(
-        id: data['id'],
-        externalId: data['externalId'],
-        quantity: data['quantity'],
+        id: data[AbacatePayConstants.id],
+        externalId: data[AbacatePayConstants.externalId],
+        quantity: data[AbacatePayConstants.quantity],
       );
 
   Map<String, dynamic> toMap() => {
-    'id': id,
-    'externalId': externalId,
-    'quantity': quantity,
+    AbacatePayConstants.id: id,
+    AbacatePayConstants.externalId: externalId,
+    AbacatePayConstants.quantity: quantity,
   };
 }

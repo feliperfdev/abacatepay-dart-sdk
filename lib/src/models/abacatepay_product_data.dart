@@ -1,3 +1,5 @@
+import 'package:abacatepay/src/models/constants/abacatepay_constants.dart';
+
 final class AbacatePayProductData {
   final String externalId;
   final String name;
@@ -14,10 +16,10 @@ final class AbacatePayProductData {
   });
 
   Map<String, dynamic> toMap() => {
-    "externalId": externalId,
-    "name": name,
-    "description": description,
-    "quantity": quantity,
-    "price": price,
+    AbacatePayConstants.externalId: externalId,
+    AbacatePayConstants.name: name,
+    AbacatePayConstants.description: description,
+    AbacatePayConstants.quantity: quantity,
+    AbacatePayConstants.price: price,
   };
 }
