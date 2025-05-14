@@ -20,8 +20,8 @@ A Dart/Flutter SDK for <a href='https://www.abacatepay.com/'>AbacatePay</a> paym
   - ✅ Simulate payment
   - ✅ Check status
 - Coupons
-  - ⭕ List your coupons
-  - ⭕ Create new coupon
+  - ✅ List your coupons
+  - ✅ Create new coupon
 
 ## Getting started
 
@@ -68,9 +68,19 @@ final abacatePixQrCode = abacatePay.pixQrCode;
 
 final createdPayment = await abacatePixQrCode.createPayment(AbacatePayPixQrCodeData); // List<AbacatePayPixQrCodeResponse>
 
-final paymentStatus = await abacatePixQrCode.simulatePayment(AbacatePayPixQrCodeData); // AbacatePayPixQrCodeStatusResponse
+final paymentStatus = await abacatePixQrCode.simulatePayment(String qrCodePixID); // AbacatePayPixQrCodeStatusResponse
 
-final simulatedPayment = await abacatePixQrCode.checkPaymentStatus(AbacatePayPixQrCodeData); // AbacatePayPixQrCodeStatusResponse
+final simulatedPayment = await abacatePixQrCode.checkPaymentStatus(String qrCodePixID); // AbacatePayPixQrCodeStatusResponse
+```
+
+### Coupons Methods
+
+```dart
+final abacateCoupons = abacatePay.coupons;
+
+final createdCoupon = await abacateCoupons.createCoupon(AbacatePayCouponData); // AbacatePayCouponResponse
+
+final coupons = await abacateCoupons.lisCounpons(); // List<AbacatePayCouponResponse>
 ```
 
 ## Additional information

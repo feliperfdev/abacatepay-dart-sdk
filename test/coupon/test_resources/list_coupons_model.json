@@ -1,0 +1,13 @@
+{
+  "data": [
+    {
+      "code": "DEYVIN_20",
+      "notes": "Cupom de desconto pro meu público",
+      "maxRedeems": 10,
+      "discountKind": "PERCENTAGE",
+      "discount": 123,
+      "metadata": {}
+    }
+  ],
+  "error": "<any>"
+}

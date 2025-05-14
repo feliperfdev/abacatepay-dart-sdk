@@ -12,3 +12,6 @@ Fully integrated with all AbacatePay API usecases
   - Create QrCode PIX
   - Simulate payment
   - Check status
+- Coupons
+  - List your coupons
+  - Create new coupon

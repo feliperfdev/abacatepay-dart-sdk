@@ -28,6 +28,13 @@ abstract interface class AbacatePayConstants {
   static const email = 'email';
   static const taxId = 'taxId';
 
+  static const code = 'code';
+  static const notes = 'notes';
+  static const maxRedeems = 'maxRedeems';
+  static const discountKind = 'discountKind';
+  static const discount = 'discount';
+  static const metadata = 'metadata';
+
   static const pixEnum = 'PIX';
 
   static const oneTimeEnum = 'ONE_TIME';
@@ -38,4 +45,7 @@ abstract interface class AbacatePayConstants {
   static const cancelledEnum = 'CANCELLED';
   static const paidEnum = 'PAID';
   static const refundedEnum = 'REFUNDED';
+
+  static const percentageDiscountEnum = 'PERCENTAGE';
+  static const fixedDiscountEnum = 'FIXED';
 }
