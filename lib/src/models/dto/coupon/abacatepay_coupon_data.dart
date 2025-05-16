@@ -23,7 +23,7 @@ final class AbacatePayCouponData {
   final int? maxRedeems;
 
   /// Objeto chave valor para metadados do cupom
-  final Map<String, dynamic>? metadata;
+  final Map<String, dynamic> metadata;
 
   AbacatePayCouponData({
     required this.code,

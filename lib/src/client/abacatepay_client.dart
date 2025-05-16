@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:abacatepay/src/client/abacatepay_base_client.dart';
+import 'package:abacatepay/src/client/interceptors/header_interceptor.dart';
+import 'package:abacatepay/src/client/interceptors/logger_interceptor.dart';
 import 'package:abacatepay/src/exceptions/abacatepay_client_exception.dart';
 import 'package:http/http.dart';
 
@@ -9,14 +12,12 @@ class AbacatePayClient {
 
   AbacatePayClient({required this.apiKey, required this.apiVersion});
 
-  final _http = Client();
+  late final _client =
+      AbacatePayBaseClient(
+        interceptors: [LoggerInterceptor(), HeaderInterceptor(apiKey: apiKey)],
+      ).clientWithInterceptor();
 
   String get _baseURL => 'api.abacatepay.com';
-
-  Map<String, String> get _headers => {
-    'Authorization': "Bearer $apiKey",
-    'Content-Type': "application/json",
-  };
 
   Future<Map<String, dynamic>> post(
     String path, {
@@ -27,15 +28,7 @@ class AbacatePayClient {
     try {
       final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
-      print(url.toString());
-
-      final response = await _http.post(
-        url,
-        body: jsonEncode(body),
-        headers: _headers,
-      );
-
-      print('Status: ${response.statusCode}');
+      final response = await _client.post(url, body: jsonEncode(body));
 
       return jsonDecode(response.body);
     } on ClientException catch (e) {
@@ -54,15 +47,7 @@ class AbacatePayClient {
     try {
       final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
-      print(url.toString());
-
-      final response = await _http.put(
-        url,
-        body: jsonEncode(body),
-        headers: _headers,
-      );
-
-      print('Status: ${response.statusCode}');
+      final response = await _client.put(url, body: jsonEncode(body));
 
       return jsonDecode(response.body);
     } on ClientException catch (e) {
@@ -81,11 +66,7 @@ class AbacatePayClient {
     try {
       final url = Uri.https(_baseURL, '/v$apiVersion$path', queryParams);
 
-      print(url.toString());
-
-      final response = await _http.get(url, headers: _headers);
-
-      print('Status: ${response.statusCode}');
+      final response = await _client.get(url);
 
       return jsonDecode(response.body);
     } on ClientException catch (e) {
@@ -104,15 +85,7 @@ class AbacatePayClient {
     try {
       final url = Uri.https(_baseURL, '/v$apiVersion$path');
 
-      print(url.toString());
-
-      final response = await _http.delete(
-        url,
-        body: jsonEncode(body),
-        headers: _headers,
-      );
-
-      print('Status: ${response.statusCode}');
+      final response = await _client.delete(url, body: jsonEncode(body));
 
       return jsonDecode(response.body);
     } on ClientException catch (e) {
