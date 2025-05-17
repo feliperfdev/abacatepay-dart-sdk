@@ -1,3 +1,7 @@
+## 1.0.2+5
+
+- Minor fixex
+
 ## 1.0.2+4
 
 - Improved documentation

@@ -1,8 +1,6 @@
 import 'package:abacatepay/abacatepay.dart';
 import 'package:abacatepay/src/client/abacatepay_client.dart';
 
-import '../../exceptions/abacatepay_response_exception.dart';
-
 final class AbacatePayCustomer {
   late final AbacatePayClient _client;
 
