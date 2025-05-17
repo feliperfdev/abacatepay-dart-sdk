@@ -1,3 +1,7 @@
+## 1.0.2+6
+
+- Removed `cupertino_http` be'cause of a package not solved error
+
 ## 1.0.2+5
 
 - Minor fixex
