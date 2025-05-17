@@ -37,7 +37,7 @@ void main() {
         notes: null,
         discountKind: DiscountKind.percentage,
         discount: 10,
-        metadata: null,
+        metadata: {},
       ),
     );
 

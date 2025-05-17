@@ -1,6 +1,8 @@
 ## 1.0.2+4
 
 - Improved documentation
+- Added different Client types based on used Platform
+- Added some interceptors to client
 
 ## 1.0.2+3
 
