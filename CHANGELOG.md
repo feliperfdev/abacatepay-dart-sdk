@@ -1,3 +1,7 @@
+## 1.0.2+7
+
+- Added Flutter SDK
+
 ## 1.0.2+6
 
 - Removed `cupertino_http` be'cause of a package not solved error
